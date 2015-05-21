@@ -37,14 +37,14 @@ def main(args):
     print 'Copying dimensions: {}'.format(dims_to_copy)
 
     # Copy Dimensions
-    for dname, dim in dsin.dimensions.iteritems():
+    for dname, dim in dsin.dimensions.items():
         if dname not in dims_to_copy:
             continue
         print dname, len(dim)
         dsout.createDimension(dname, len(dim) if not dim.isunlimited() else None)
 
     # Copy Variables
-    for v_name, varin in dsin.variables.iteritems():
+    for v_name, varin in dsin.variables.items():
         if v_name not in vars_to_copy:
             continue
         outVar = dsout.createVariable(v_name, varin.datatype, varin.dimensions)
